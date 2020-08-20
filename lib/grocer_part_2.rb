@@ -24,7 +24,7 @@ def apply_clearance(cart)
       key[:price] *= 0.8
     end
   end
-  cart
+  return cart
 end
 
 def checkout(cart, coupons)
@@ -46,5 +46,5 @@ def checkout(cart, coupons)
   if total > 100
     total *= 0.9
   end
-  total.round(2)
+  return total.round(2)
 end
