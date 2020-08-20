@@ -37,9 +37,8 @@ def checkout(cart, coupons)
   #
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
-  consolidate_cart(cart)
-  apply_coupons(cart,coupons)
-  apply_clearance(cart)
+  couponed_cart = apply_coupons(consolidate_cart(cart), coupons)
+  final_cart= apply_clearance(couponed_cart)
   total = 0
   cart.each do |key|
     total += key[:price]*key[:count]
